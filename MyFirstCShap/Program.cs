@@ -18,8 +18,7 @@ namespace MyFirstCShap
             //Application.Run(new Chap06_StringFind());
             //Application.Run(new Chap07_StringSplit());
             //Application.Run(new Chap08_Test());
-            //Application.Run(new Chap09_Null());
-            Application.Run(new Chap10_Class2());
+            Application.Run(new Chap09_Null());
         }
     }
 }
