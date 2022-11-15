@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -33,8 +34,9 @@ namespace MyFirstCShap
             // 자동실행
 
             MessageBox.Show("안녕하세요");
-            sValue = "반갑습니다.";
-            string sValue2 = "화이팅"; // 변수
+            //sValue = "반갑습니다.";
+            //string sValue2 = "화이팅"; // 변수
+
         }
 
         // 2. 필드 멤버
@@ -42,11 +44,13 @@ namespace MyFirstCShap
         string sValue = "안녕하세요";
         int iValue = 10;
 
+        public string sArm = "팔"; // 외부에서도 사용가능한 변수(public)
+
         // 3. 메서드(함수) 멤버
         // 어떤 시점에서 발생, 이벤트로 발생
-        void Method1()
+        public void Method1()
         {
-
+            MessageBox.Show("Class 객체의 메서드를 호출하였습니다.");
         }
 
         // 필드멤버 : 클래스에서 사용되는 변수, 객체를 관리하는 멤버
