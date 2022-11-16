@@ -22,7 +22,7 @@ namespace MyFirstCShap
     // 2. 생성자 (멤버)
     // 3. 메서드 (멤버)
 
-    internal class Chap10_Class
+    public class Chap10_Class
     {
         // 1. 생성자 멤버
         public Chap10_Class()
@@ -40,6 +40,7 @@ namespace MyFirstCShap
         string sValue = "안녕하세요";
         int iValue = 10;
         public string sArm = "팔";
+
 
         // 3. 메서드(함수) 멤버
         public void Method1()
