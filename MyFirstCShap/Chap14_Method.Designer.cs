@@ -44,6 +44,10 @@
             this.btnClassMCall = new System.Windows.Forms.Button();
             this.btnRef = new System.Windows.Forms.Button();
             this.btnOut = new System.Windows.Forms.Button();
+            this.btnIn = new System.Windows.Forms.Button();
+            this.btnOverLoding = new System.Windows.Forms.Button();
+            this.btnTryParse = new System.Windows.Forms.Button();
+            this.btnGenericMethod = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -203,17 +207,61 @@
             this.btnOut.UseVisualStyleBackColor = true;
             this.btnOut.Click += new System.EventHandler(this.btnOut_Click);
             // 
+            // btnIn
+            // 
+            this.btnIn.Location = new System.Drawing.Point(268, 333);
+            this.btnIn.Name = "btnIn";
+            this.btnIn.Size = new System.Drawing.Size(119, 45);
+            this.btnIn.TabIndex = 2;
+            this.btnIn.Text = "in";
+            this.btnIn.UseVisualStyleBackColor = true;
+            this.btnIn.Click += new System.EventHandler(this.btnIn_Click);
+            // 
+            // btnOverLoding
+            // 
+            this.btnOverLoding.Location = new System.Drawing.Point(17, 384);
+            this.btnOverLoding.Name = "btnOverLoding";
+            this.btnOverLoding.Size = new System.Drawing.Size(119, 45);
+            this.btnOverLoding.TabIndex = 2;
+            this.btnOverLoding.Text = "OverLoding";
+            this.btnOverLoding.UseVisualStyleBackColor = true;
+            this.btnOverLoding.Click += new System.EventHandler(this.btnOverLoding_Click);
+            // 
+            // btnTryParse
+            // 
+            this.btnTryParse.Location = new System.Drawing.Point(17, 435);
+            this.btnTryParse.Name = "btnTryParse";
+            this.btnTryParse.Size = new System.Drawing.Size(119, 45);
+            this.btnTryParse.TabIndex = 2;
+            this.btnTryParse.Text = "TryParse";
+            this.btnTryParse.UseVisualStyleBackColor = true;
+            this.btnTryParse.Click += new System.EventHandler(this.btnTryParse_Click);
+            // 
+            // btnGenericMethod
+            // 
+            this.btnGenericMethod.Location = new System.Drawing.Point(142, 384);
+            this.btnGenericMethod.Name = "btnGenericMethod";
+            this.btnGenericMethod.Size = new System.Drawing.Size(119, 45);
+            this.btnGenericMethod.TabIndex = 2;
+            this.btnGenericMethod.Text = "Generic Method";
+            this.btnGenericMethod.UseVisualStyleBackColor = true;
+            this.btnGenericMethod.Click += new System.EventHandler(this.btnGenericMethod_Click);
+            // 
             // Chap14_Method
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(495, 413);
+            this.ClientSize = new System.Drawing.Size(485, 513);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnVoidReturn);
             this.Controls.Add(this.btnArg_Par);
             this.Controls.Add(this.btnClassMCall);
             this.Controls.Add(this.btnArrayReturn);
+            this.Controls.Add(this.btnIn);
             this.Controls.Add(this.btnOut);
+            this.Controls.Add(this.btnTryParse);
+            this.Controls.Add(this.btnGenericMethod);
+            this.Controls.Add(this.btnOverLoding);
             this.Controls.Add(this.btnRef);
             this.Controls.Add(this.btnArrayArg);
             this.Controls.Add(this.btnDefaultReturn);
@@ -248,5 +296,9 @@
         private Button btnClassMCall;
         private Button btnRef;
         private Button btnOut;
+        private Button btnIn;
+        private Button btnOverLoding;
+        private Button btnTryParse;
+        private Button btnGenericMethod;
     }
 }
