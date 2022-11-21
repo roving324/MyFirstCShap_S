@@ -31,13 +31,13 @@
             this.txtInput = new System.Windows.Forms.TextBox();
             this.btnIF = new System.Windows.Forms.Button();
             this.btnInIF = new System.Windows.Forms.Button();
-            this.btnElseIF = new System.Windows.Forms.Button();
             this.btnAndIF = new System.Windows.Forms.Button();
             this.btnOrIF = new System.Windows.Forms.Button();
             this.btnBoolIf = new System.Windows.Forms.Button();
             this.btnP_MFlag = new System.Windows.Forms.Button();
             this.btnH_JTest = new System.Windows.Forms.Button();
             this.btnTernaryOperator = new System.Windows.Forms.Button();
+            this.btnElseIF = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtInput
@@ -66,16 +66,6 @@
             this.btnInIF.Text = "in IF";
             this.btnInIF.UseVisualStyleBackColor = true;
             this.btnInIF.Click += new System.EventHandler(this.btnInIF_Click);
-            // 
-            // btnElseIF
-            // 
-            this.btnElseIF.Location = new System.Drawing.Point(189, 55);
-            this.btnElseIF.Name = "btnElseIF";
-            this.btnElseIF.Size = new System.Drawing.Size(80, 43);
-            this.btnElseIF.TabIndex = 1;
-            this.btnElseIF.Text = "Else IF";
-            this.btnElseIF.UseVisualStyleBackColor = true;
-            this.btnElseIF.Click += new System.EventHandler(this.btnElseIF_Click);
             // 
             // btnAndIF
             // 
@@ -137,6 +127,16 @@
             this.btnTernaryOperator.UseVisualStyleBackColor = true;
             this.btnTernaryOperator.Click += new System.EventHandler(this.btnTernaryOperator_Click);
             // 
+            // btnElseIF
+            // 
+            this.btnElseIF.Location = new System.Drawing.Point(189, 55);
+            this.btnElseIF.Name = "btnElseIF";
+            this.btnElseIF.Size = new System.Drawing.Size(80, 43);
+            this.btnElseIF.TabIndex = 1;
+            this.btnElseIF.Text = "Else IF";
+            this.btnElseIF.UseVisualStyleBackColor = true;
+            this.btnElseIF.Click += new System.EventHandler(this.btnElseIF_Click);
+            // 
             // Chap15_BranchingStatment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -164,12 +164,12 @@
         private TextBox txtInput;
         private Button btnIF;
         private Button btnInIF;
-        private Button btnElseIF;
         private Button btnAndIF;
         private Button btnOrIF;
         private Button btnBoolIf;
         private Button btnP_MFlag;
         private Button btnH_JTest;
         private Button btnTernaryOperator;
+        private Button btnElseIF;
     }
 }
