@@ -33,9 +33,8 @@ namespace MyFirstCShap
                 MessageBox.Show("한글자 이상은 처리할 수 없습니다.");
                 return;
             }
-            char a = Convert.ToChar(label1.Text.Remove(0, sTitle.Length - 1));
             char sValue = Convert.ToChar(txtstringForeach.Text); // 입력한 문자열 받는 변수.
-            
+            bool bFlag = false;
             // 문자열에서 한글자씩 추출하여 변수에 담는다.
             foreach (char chValue in sTitle)
             {
@@ -44,14 +43,14 @@ namespace MyFirstCShap
                 if (chValue == sValue)
                 {
                     MessageBox.Show($"{Convert.ToString(chValue)} 문자열은 포함되어 있습니다.");
+                    bFlag = true;
                     //return;
                 }
-                else if(a == chValue && chValue != sValue)
-                {
-                    MessageBox.Show($"{Convert.ToString(sValue)} 문자열은 포함되어있지 않습니다.");
-                }
             }
-            //MessageBox.Show($"{Convert.ToString(sValue)} 문자열은 포함되어있지 않습니다.");
+            if(!bFlag)
+            {
+                MessageBox.Show($"{Convert.ToString(sValue)} 문자열은 포함되어있지 않습니다.");
+            }
         }
     }
 }
