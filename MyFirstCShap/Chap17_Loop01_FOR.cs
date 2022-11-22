@@ -77,5 +77,52 @@ namespace MyFirstCShap
 
             MessageBox.Show(Convert.ToString(iSumValue));
         }
+
+        private void btnGuGuDan_Click(object sender, EventArgs e)
+        {
+            for(int i = 2; i < 10; i++)
+            {
+                for(int j= 1; j < 10; j++)
+                {
+                    if(j == 9)
+                    {
+                        txtGuGuDan.Text += $"{i} * {j} = {i * j}\r\n";
+                        continue;
+                    }
+                    // \r\n : 줄바꿈.
+                    // \ : 문자열 안에서 로직을 실행할 수 있게 만들어주는 기능
+                    txtGuGuDan.Text += $" {i} * {j} = {i * j},";
+                }
+            }
+        }
+
+        private void btnImmutable_Click(object sender, EventArgs e)
+        {
+            // ImmutableType (string) 과 MutableType (int)
+            // string 데이터 타입은 Immutable 타입
+            // int    데이터 타입은 Mutable 타입
+            // Immutable 은 저장되는 번지수만 늘어나서 데이터가 증가하는 형식(사라지지 않는 데이터)
+
+            string sValue = string.Empty; // = "";
+
+            for(int i = 0; i <= 100; i++)
+            {
+                sValue+= i.ToString();
+            }
+
+            MessageBox.Show(sValue);
+
+            // string (ImmutableType)
+            // 컴퓨터의 성능이 좋아져서 효율이 많이 떨어지지는 않지만
+            // 불필요한 메모리 공간이 많아지므로 StringBuilder 라는 기능을 사용할 것을 권장.
+
+            StringBuilder sBvalue = new StringBuilder();
+            for(int i = 0; i <= 100; i++)
+            {
+                sBvalue.Append(i.ToString()); // Append : 새로운 문자열을 추가
+            }
+            MessageBox.Show(Convert.ToString(sBvalue));
+            sBvalue.Clear(); // Clear : 기존 내용을 삭제
+        }
     }
 }
