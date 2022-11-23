@@ -52,5 +52,34 @@ namespace MyFirstCShap
                 MessageBox.Show($"{Convert.ToString(sValue)} 문자열은 포함되어있지 않습니다.");
             }
         }
+
+        private void btnArrayForeach_Click(object sender, EventArgs e)
+        {
+            // 배열의 내용을 추출하는 방법.
+
+            // 1. 배열 생성.
+            int[] iValues = new int[] { 11, 12, 13, 14 };
+
+            int iCount = 0;
+            foreach (int Elem in iValues)
+            {
+                MessageBox.Show($"{iCount} 주소에는 값 {Elem}가 있습니다.");
+                ++iCount;
+            }
+        }
+
+        private void btnObjForeach_Click(object sender, EventArgs e)
+        {
+            // 그룹박스에 포함되어있는 컨트롤을 하나씩 뽑아서 로직을 구현.
+            // 도구상자에 사용되는 도구 클래스는 (Control, Component)라고 부른다.
+            foreach(Control MyControl in grbTextBoxInit.Controls)
+            {
+                // is : 데이터 값의 비교가 아닌 클래스 속성의 참 거짓 여부를 판단.
+                if(MyControl is TextBox)
+                {
+                    MyControl.Text = "안녕하세요";
+                }
+            }
+        }
     }
 }
