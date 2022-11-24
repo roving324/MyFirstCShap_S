@@ -24,6 +24,9 @@
     <Compile Update="Chap17_Loop01_ForTest05.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Chap22_Algorithm_Test02.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 
 </Project>

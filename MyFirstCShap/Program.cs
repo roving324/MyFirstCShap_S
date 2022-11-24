@@ -13,7 +13,7 @@ namespace MyFirstCShap
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Chap21_Collection()); //이 앱을 실행 전 Chap01_Hello부터 실행
+            Application.Run(new Chap22_Algorithm_Test03()); //이 앱을 실행 전 Chap01_Hello부터 실행
         }
     }
 }
