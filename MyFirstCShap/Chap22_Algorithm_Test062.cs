@@ -29,19 +29,13 @@ namespace CHAP04_MiddleExam
             for (int i = 0; i < sValues.Length; i++)
             {
                 iValues[i] = Convert.ToInt32(sValues[i]);
-                if (MyDic.ContainsKey(iValues[i]))
-                {
-                    MyDic[iValues[i]] += 1;
-                }
+                if (MyDic.ContainsKey(iValues[i])) MyDic[iValues[i]] += 1;
                 else
                 {
                     MyDic.Add(iValues[i], 1);
                     continue;
                 }
-                if (MyDic[iValues[i]] == 2)
-                {
-                    list.Add(iValues[i]);
-                }
+                if (MyDic[iValues[i]] == 2) list.Add(iValues[i]);
             }
             list.Sort();
             MessageBox.Show($"{list[0]},{list[2]}");
