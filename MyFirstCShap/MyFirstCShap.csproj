@@ -27,6 +27,21 @@
     <Compile Update="Chap22_Algorithm_Test02.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Chap22_Algorithm_Test042.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Chap22_Algorithm_Test041.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Chap22_Algorithm_Test051.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Chap22_Algorithm_Test062.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Chap22_Algorithm_Test061.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 
 </Project>

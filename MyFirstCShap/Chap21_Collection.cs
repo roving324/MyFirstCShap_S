@@ -29,7 +29,7 @@ namespace MyFirstCShap
             ArrayList arrList = new ArrayList();
 
             // 기본적인 데이터 등록 방법.
-            for (int i = 0; i <= 10; i++)
+            for (int i = 1; i <= 11; i++)
             {
                 arrList.Add(i); // 데이터를 등록. Add
             }
@@ -40,7 +40,8 @@ namespace MyFirstCShap
             //arrList.Sort(); // 리스트에 있는 내용을 정렬
             // * 데이터 타입이 혼용되어 있을 경우 정렬을 할 수 없다.
 
-            arrList.Remove(2); // 2번 인덱스에 있는 데이터와 메모리 삭제 후 다시 정렬.
+            arrList.Remove(3); // 데이터 3 값을 찾아서 삭제한다.
+            arrList.RemoveAt(3);  // 3번 인덱스(주소)에 있는 데이터를 삭제한다.
 
             arrList.Insert(2, 40); // 2번 인덱스에 40 데이터 추가.
 
