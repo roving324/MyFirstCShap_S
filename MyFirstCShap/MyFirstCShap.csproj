@@ -12,6 +12,15 @@
     <Compile Update="Chap08_Test2.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Chap23_Application_Test3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Chap23_Application_Test2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Chap23_Application_Test.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Chap16_Switch_Test4.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -40,6 +49,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Chap22_Algorithm_Test061.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Chap22_Algorithm_Test072.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Chap22_Algorithm_Test071.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
