@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace MyFirstCSharp
 {
-    public partial class Chap23_Application_Test3 : Form
+    public partial class Chap23_Application_Test4 : Form
     {
         private int iTotalPrice = 0;
 
@@ -23,7 +23,7 @@ namespace MyFirstCSharp
         private int it_Appcnt = 10; // 고객이 주문을 클릭하여 남는 재고
         private int it_Melcnt = 10;
         private int it_WMcnt = 10;
-        public Chap23_Application_Test3()
+        public Chap23_Application_Test4()
         {
             InitializeComponent();
         }
@@ -141,6 +141,54 @@ namespace MyFirstCSharp
 
             MessageBox.Show($"{iTotalPrice}원의 결제를 완료 하였습니다.");
             iTotalPrice = 0;
+        }
+
+        private void btnInvOrder_Click(object sender, EventArgs e)
+        {
+            // 관리자 과일 재고 및 입고 등록.
+
+            // 과일의 발주 개수 파악
+            int iAOrdCnt;
+            int iMOrdCnt;
+            int iWOrdCnt;
+
+            // 텍스트박스에 입력한 문자가 숫자형식으로 바뀔수 있는 데이터 인지 확인
+            int.TryParse(txtAppInvoiceCnt.Text, out iAOrdCnt);
+            int.TryParse(txtMellonInvoiceCnt.Text, out iMOrdCnt);
+            int.TryParse(txtW_MInvoiceCnt.Text, out iWOrdCnt);  // 자동완성 ctrl + j
+
+            // 발주 금액
+            int iAOrdPrice = Convert.ToInt32(iAOrdCnt * iAppPrice * 0.6);
+            int iMOrdPrice = Convert.ToInt32(iMOrdCnt * iMelPrice * 0.6);
+            int iWOrdPrice = Convert.ToInt32(iWOrdCnt * iWMPrice * 0.6);
+
+            // 총 발주 금액
+            int iTotalOrdPrice = iAOrdPrice + iMOrdPrice + iWOrdPrice;
+
+            // 관리자의 가게 잔액보다 큰 발주를 내었는지 확인
+            int iManCash = Convert.ToInt32(lblManCash.Text);
+
+            if(iManCash < iTotalOrdPrice)
+            {
+                MessageBox.Show("가게 잔액보다 발주 금액이 많습니다.");
+                return;
+            }
+
+            // 가게 잔액 차감
+            lblManCash.Text = Convert.ToString(iManCash - iTotalOrdPrice);
+
+            // 발주 내역 영수증 출력
+            txtSaleList.Text += "--------------발주 내역-------------\r\n";
+            if (iAOrdPrice > 0) txtSaleList.Text += $"사과 발주 수량 : {iAOrdCnt} 개, 발주금액 : {iAOrdPrice} 원\r\n";
+            if (iMOrdPrice > 0) txtSaleList.Text += $"참외 발주 수량 : {iMOrdCnt} 개, 발주금액 : {iMOrdPrice} 원\r\n";
+            if (iWOrdPrice > 0) txtSaleList.Text += $"수박 발주 수량 : {iWOrdCnt} 개, 발주금액 : {iWOrdPrice} 원\r\n";
+            // 재고 증가.
+            iAppCnt = it_Appcnt += iAOrdCnt;
+            lblAppCount.Text = Convert.ToString(iAppCnt);
+            iMelCnt = it_Melcnt += iMOrdCnt;
+            lblMelonCount.Text = Convert.ToString(iMelCnt);
+            iWMCnt = it_WMcnt += iWOrdPrice;
+            lblW_MCount.Text = Convert.ToString(iWMCnt);
         }
     }
 }

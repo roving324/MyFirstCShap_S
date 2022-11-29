@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace MyFirstCSharp
 {
-    public partial class Chap23_Application_Test3 : Form
+    public partial class Chap23_Application_Test5 : Form
     {
         private int iTotalPrice = 0;
 
@@ -23,15 +23,22 @@ namespace MyFirstCSharp
         private int it_Appcnt = 10; // 고객이 주문을 클릭하여 남는 재고
         private int it_Melcnt = 10;
         private int it_WMcnt = 10;
-        public Chap23_Application_Test3()
-        {
-            InitializeComponent();
-        }
 
         // 과일 금액
         private int iAppPrice = 2000;
         private int iMelPrice = 2500;
-        private int iWMPrice  = 18000;
+        private int iWMPrice = 18000;
+
+        // 과일 마진 금액
+        Dictionary<string, int> dMargin = new Dictionary<string, int>();
+
+        public Chap23_Application_Test5()
+        {
+            InitializeComponent();
+            dMargin.Add("사과", 0);
+            dMargin.Add("참외", 0);
+            dMargin.Add("수박", 0);
+        }
 
         void CheckFruitM_P(string sFruitName,ref int iFruitCount, Label Temlbl)
         {
@@ -141,6 +148,96 @@ namespace MyFirstCSharp
 
             MessageBox.Show($"{iTotalPrice}원의 결제를 완료 하였습니다.");
             iTotalPrice = 0;
+
+            // 마진 처리하기
+            dMargin["사과"] += iAppOrdCnt * iAppPrice; // 사과 판매 내역
+            dMargin["참외"] += iMelOrdCnt * iMelPrice; // 참외 판매 내역
+            dMargin["수박"] += iWMOrdCnt * iWMPrice;   // 수박 판매 내역
+        }
+
+        private void btnInvOrder_Click(object sender, EventArgs e)
+        {
+            // 관리자 과일 재고 및 입고 등록.
+
+            // 과일의 발주 개수 파악
+            int iAOrdCnt;
+            int iMOrdCnt;
+            int iWOrdCnt;
+
+            // 텍스트박스에 입력한 문자가 숫자형식으로 바뀔수 있는 데이터 인지 확인
+            int.TryParse(txtAppInvoiceCnt.Text, out iAOrdCnt);
+            int.TryParse(txtMellonInvoiceCnt.Text, out iMOrdCnt);
+            int.TryParse(txtW_MInvoiceCnt.Text, out iWOrdCnt);  // 자동완성 ctrl + j
+
+            // 발주 금액
+            int iAOrdPrice = Convert.ToInt32(iAOrdCnt * iAppPrice * 0.6);
+            int iMOrdPrice = Convert.ToInt32(iMOrdCnt * iMelPrice * 0.6);
+            int iWOrdPrice = Convert.ToInt32(iWOrdCnt * iWMPrice * 0.6);
+
+            // 총 발주 금액
+            int iTotalOrdPrice = iAOrdPrice + iMOrdPrice + iWOrdPrice;
+
+            // 관리자의 가게 잔액보다 큰 발주를 내었는지 확인
+            int iManCash = Convert.ToInt32(lblManCash.Text);
+
+            if(iManCash < iTotalOrdPrice)
+            {
+                MessageBox.Show("가게 잔액보다 발주 금액이 많습니다.");
+                return;
+            }
+
+            // 가게 잔액 차감
+            lblManCash.Text = Convert.ToString(iManCash - iTotalOrdPrice);
+
+            // 발주 내역 영수증 출력
+            txtSaleList.Text += "--------------발주 내역-------------\r\n";
+            if (iAOrdPrice > 0) txtSaleList.Text += $"사과 발주 수량 : {iAOrdCnt} 개, 발주금액 : {iAOrdPrice} 원\r\n";
+            if (iMOrdPrice > 0) txtSaleList.Text += $"참외 발주 수량 : {iMOrdCnt} 개, 발주금액 : {iMOrdPrice} 원\r\n";
+            if (iWOrdPrice > 0) txtSaleList.Text += $"수박 발주 수량 : {iWOrdCnt} 개, 발주금액 : {iWOrdPrice} 원\r\n";
+            // 재고 증가.
+            iAppCnt = it_Appcnt += iAOrdCnt;
+            lblAppCount.Text = Convert.ToString(iAppCnt);
+            iMelCnt = it_Melcnt += iMOrdCnt;
+            lblMelonCount.Text = Convert.ToString(iMelCnt);
+            iWMCnt = it_WMcnt += iWOrdPrice;
+            lblW_MCount.Text = Convert.ToString(iWMCnt);
+
+            // 마진 처리하기
+            dMargin["사과"] -= iAOrdPrice; // 사과 발주 내역
+            dMargin["참외"] -= iMOrdPrice; // 참외 발주 내역
+            dMargin["수박"] -= iWOrdPrice; // 수박 발주 내역
+        }
+
+        private void btnMarginUnit_Click(object sender, EventArgs e)
+        {
+            // 개별 마진 보기
+            string sFruitName = string.Empty;
+            if     (rdoApple.Checked)  sFruitName = "사과";
+            else if(rdoMellon.Checked) sFruitName = "참외";
+            else if(rdoW_M.Checked)    sFruitName = "수박";
+            MessageBox.Show($"{sFruitName}의 마진은 {dMargin[sFruitName]} 입니다.");
+        }
+
+        private void btnMarginTotal_Click(object sender, EventArgs e)
+        {
+            // 판매 / 발주 총 마진 금액 산출 및 표현
+            int iTotalMargin = 0; // 총 마진 누적 변수
+            foreach(int iFruitMargin in dMargin.Values)
+            {
+                iTotalMargin += iFruitMargin;
+            }
+            MessageBox.Show($"과일의 총 마진은 {iTotalMargin} 입니다.");
+        }
+
+        private void btnInvClear_Click(object sender, EventArgs e)
+        {
+            foreach(Control text in groupBox6.Controls)
+            {
+                if(text is TextBox)
+                {
+                    text.Text = string.Empty;
+                } 
+            }
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace MyFirstCSharp
 {
-    partial class Chap23_Application_Test
+    partial class Chap23_Application_Test5
     {
         /// <summary>
         /// Required designer variable.
@@ -69,7 +69,7 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.txtTradehistory = new System.Windows.Forms.TextBox();
+            this.txtSaleList = new System.Windows.Forms.TextBox();
             this.lblManCash = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -487,7 +487,7 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.txtTradehistory);
+            this.groupBox5.Controls.Add(this.txtSaleList);
             this.groupBox5.Location = new System.Drawing.Point(16, 66);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(252, 301);
@@ -495,15 +495,14 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "거래 내역";
             // 
-            // txtTradehistory
+            // txtSaleList
             // 
-            this.txtTradehistory.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtTradehistory.Location = new System.Drawing.Point(3, 19);
-            this.txtTradehistory.Multiline = true;
-            this.txtTradehistory.Name = "txtTradehistory";
-            this.txtTradehistory.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtTradehistory.Size = new System.Drawing.Size(246, 279);
-            this.txtTradehistory.TabIndex = 0;
+            this.txtSaleList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtSaleList.Location = new System.Drawing.Point(3, 19);
+            this.txtSaleList.Multiline = true;
+            this.txtSaleList.Name = "txtSaleList";
+            this.txtSaleList.Size = new System.Drawing.Size(246, 279);
+            this.txtSaleList.TabIndex = 0;
             // 
             // lblManCash
             // 
@@ -532,7 +531,7 @@
             this.label11.TabIndex = 2;
             this.label11.Text = "원";
             // 
-            // Chap23_Application_Test
+            // Chap23_Application_Test5
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -547,8 +546,8 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Name = "Chap23_Application_Test";
-            this.Text = "과일 가게 재고 상황";
+            this.Name = "Chap23_Application_Test5";
+            this.Text = "Switch  분기문 실습";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -603,7 +602,7 @@
         private Label label15;
         private Label label14;
         private GroupBox groupBox5;
-        private TextBox txtTradehistory;
+        private TextBox txtSaleList;
         private Label lblManCash;
         private Label label10;
         private Label label11;
