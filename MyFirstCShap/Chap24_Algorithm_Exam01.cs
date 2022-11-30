@@ -16,14 +16,14 @@ namespace MyFirstCSharp
             txtResult.Text= string.Empty;
             // 랜덤 난수 생성 및 없는 수 합치기.
             Dictionary<int, int> Dic = new Dictionary<int, int>();
-            Random ran = new Random();
-            int[] iValues = new int[20];
-            int iResults = 0;
+            Random ran     = new Random();
+            int[] iValues  = new int[20];
+            int iResults   = 0;
             string sValues = string.Empty;
 
             for (int i = 0; i < 20; i++)
             {
-                int iResult = ran.Next(0, 20);
+                int iResult     = ran.Next(0, 20);
                 txtResult.Text += Convert.ToString(iResult) + " ";
                 if (Dic.ContainsKey(iResult)) continue;
                 else Dic.Add(iResult, 0);
@@ -34,7 +34,7 @@ namespace MyFirstCSharp
                 if (!(Dic.ContainsKey(i)))
                 {
                     Dic.Add(i, i);
-                    sValues += Dic[i] + " ";
+                    sValues  += Dic[i] + " ";
                     iResults += Dic[i];
                 }
             }

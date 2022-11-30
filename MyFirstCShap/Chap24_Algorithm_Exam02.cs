@@ -18,10 +18,13 @@ namespace MyFirstCSharp
             int iPrice = Ran.Next(100, 3000);
             int iCount = Ran.Next(1, 20);
             int iMyPrice = Ran.Next(10000, 500000);
-            int iPriceCount = iPrice * iCount;
-            int iResultPrice = iMyPrice - iPriceCount * iCount;
+            int iPriceCount = 0;
 
-            if(iResultPrice < 0)
+            for(int i = 1; i <= iCount; i++) iPriceCount += iPrice * i;
+
+            int iResultPrice = iMyPrice - iPriceCount;
+
+            if (iResultPrice < 0)
             MessageBox.Show($"{iMyPrice} 원이 있을 때 이용요금 {iPrice} 원 인 놀이기구를 {iCount} 번 타면 {-iResultPrice} 원이 모자릅니다.");
             else
             MessageBox.Show($"{iMyPrice} 원이 있을 때 이용요금 {iPrice} 원 인 놀이기구를 {iCount} 번 타면 {iResultPrice} 원이 남습니다.");
